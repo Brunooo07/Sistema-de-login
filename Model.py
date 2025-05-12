@@ -3,6 +3,11 @@ from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 class Bancoatributos:
+    USUARIO = "root"
+    SENHA = ""
+    HOST = "localhost"
+    BANCO = "sistema-de-login"
+    PORT = "3306"
     CONN = f"mysql+pymysql://{USUARIO}:{SENHA}@{HOST}:{PORT}/{BANCO}"
 a = Bancoatributos()
 
