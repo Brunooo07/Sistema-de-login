@@ -42,4 +42,4 @@ class ControllerCadastro():
 senha = "minha senha"
 print(hashlib.sha256(senha.encode()).hexdigest()) 
 
-ControllerCadastro.cadastrar('Caio','brunosilva707092@gmail.com', 'bruno123@123')
+ControllerCadastro.cadastrar('Uot','bruno@gmail.com', 'bruno123@123')
