@@ -32,14 +32,24 @@ class ControllerCadastro():
         if dados_verificados != 1:
             return dados_verificados
         try:
-            senha = hashlib.sha256(senha.encode())
+            senha = hashlib.sha256(senha.encode()).hexdigest()
             p1 = Pessoa(nome=nome, email=email, senha=senha)
             session.add(p1)
             session.commit()
             return 1
         except:
             return 3
-senha = "minha senha"
-print(hashlib.sha256(senha.encode()).hexdigest()) 
 
-ControllerCadastro.cadastrar('Caio','brunosilva707092@gmail.com', 'bruno123@123')
+
+class ControllerLogin():
+    @classmethod
+    def login(cls, email, senha):
+        session = retorna_session()
+        senha = hashlib.sha256(senha.encode()).hexdigest()
+        logado = session.query(Pessoa).filter(Pessoa.email == email).filter(Pessoa.senha == senha).all()
+        if len(logado) == 1:
+            return {'logado': True, 'id': logado[0].id}
+        else:
+            return False
+print(ControllerCadastro.cadastrar('teste', 'bruno@gmail.com','minhasenha'))
+print(ControllerLogin.login('bruno@gmail.com', 'minhasenha'))
