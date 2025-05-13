@@ -51,5 +51,3 @@ class ControllerLogin():
             return {'logado': True, 'id': logado[0].id}
         else:
             return False
-print(ControllerCadastro.cadastrar('teste', 'bruno@gmail.com','minhasenha'))
-print(ControllerLogin.login('bruno@gmail.com', 'minhasenha'))
